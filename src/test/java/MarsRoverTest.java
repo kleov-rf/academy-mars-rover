@@ -93,4 +93,13 @@ public class MarsRoverTest {
 
         assertEquals(expectedOutput, output);
     }
+
+    @Test
+    void should_be_able_to_move_west() {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run("RMLLM");
+
+        assertEquals("0:0:W", output);
+    }
 }
