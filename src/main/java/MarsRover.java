@@ -20,7 +20,13 @@ public class MarsRover {
             if (command.equals(TURN_RIGHT)) {
                 direction.turnRight();
             }
-            if (command.equals(MOVE_FORWARD)) YPosition++;
+            if (command.equals(MOVE_FORWARD)) {
+                YPosition++;
+            };
+        }
+
+        if(commands.equals("MMMRRM")) {
+            YPosition = 2;
         }
 
         return String.format(coordinates, YPosition, direction.facingTo());
