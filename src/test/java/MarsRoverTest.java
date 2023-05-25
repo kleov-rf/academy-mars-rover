@@ -95,4 +95,13 @@ public class MarsRoverTest {
 
         assertEquals("0:0:W", output);
     }
+
+    @Test
+    void should_be_able_to_wrap_west_border() {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run("LM");
+
+        assertEquals("9:0:W", output);
+    }
 }
