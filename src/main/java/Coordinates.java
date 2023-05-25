@@ -1,4 +1,6 @@
 public class Coordinates {
+
+    private final int MAX_WIDTH = 9;
     private int yPosition;
     private int xPosition;
 
@@ -22,6 +24,9 @@ public class Coordinates {
 
         if (direction.equals("W")) {
             xPosition--;
+            if(xPosition < 0) {
+                xPosition = MAX_WIDTH;
+            }
         }
     }
 
