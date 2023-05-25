@@ -4,17 +4,13 @@ public class MarsRover {
     public static final String TURN_LEFT = "L";
     public static final String MOVE_FORWARD = "M";
     private final Direction direction;
-    private int yPosition;
-    private int xPosition;
+    private final Coordinates coordinates = new Coordinates();
 
     public MarsRover() {
-        this.yPosition = 0;
-        this.xPosition = 0;
         this.direction = new Direction();
     }
 
     public String run(String commands) {
-        String coordinates = "%d:%d:%s";
 
         for (String command : commands.split("")) {
             if (command.equals(TURN_LEFT)) {
@@ -24,29 +20,11 @@ public class MarsRover {
                 direction.turnRight();
             }
             if (command.equals(MOVE_FORWARD)) {
-                move();
-            };
+                coordinates.move(direction.facingTo());
+            }
         }
 
-        return String.format(coordinates, xPosition, yPosition, direction.facingTo());
-    }
-
-    private void move() {
-        if(direction.facingTo().equals("S")) {
-            yPosition--;
-        }
-
-        if(direction.facingTo().equals("N")){
-            yPosition++;
-        }
-
-        if(direction.facingTo().equals("E")){
-            xPosition++;
-        }
-
-        if(direction.facingTo().equals("W")){
-            xPosition--;
-        }
+        return String.format("%s:%s", coordinates, direction.facingTo());
     }
 
 }
