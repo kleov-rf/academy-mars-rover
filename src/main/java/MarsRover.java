@@ -11,7 +11,8 @@ public class MarsRover {
 
     public String run(String commands) {
         int YPosition = 0;
-        String coordinates = "0:%d:%s";
+        int XPosition = 0;
+        String coordinates = "%d:%d:%s";
 
         for (String command : commands.split("")) {
             if (command.equals(TURN_LEFT)) {
@@ -28,10 +29,14 @@ public class MarsRover {
                 if(direction.facingTo().equals("N")){
                     YPosition++;
                 }
+
+                if(direction.facingTo().equals("E")){
+                    XPosition++;
+                }
             };
         }
 
-        return String.format(coordinates, YPosition, direction.facingTo());
+        return String.format(coordinates, XPosition, YPosition, direction.facingTo());
     }
 
 }
