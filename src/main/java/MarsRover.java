@@ -21,12 +21,14 @@ public class MarsRover {
                 direction.turnRight();
             }
             if (command.equals(MOVE_FORWARD)) {
-                YPosition++;
-            };
-        }
+                if(direction.facingTo().equals("S")) {
+                    YPosition--;
+                }
 
-        if(commands.equals("MMMRRM")) {
-            YPosition = 2;
+                if(direction.facingTo().equals("N")){
+                    YPosition++;
+                }
+            };
         }
 
         return String.format(coordinates, YPosition, direction.facingTo());
