@@ -43,6 +43,10 @@ public class MarsRover {
         if(direction.facingTo().equals("E")){
             xPosition++;
         }
+
+        if(direction.facingTo().equals("W")){
+            xPosition--;
+        }
     }
 
 }
