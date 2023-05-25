@@ -81,4 +81,16 @@ public class MarsRoverTest {
 
         assertEquals(expectedOutput, output);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "RM, 1:0:E",
+    })
+    void should_be_able_to_move_east(String input, String expectedOutput) {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run(input);
+
+        assertEquals(expectedOutput, output);
+    }
 }
